@@ -312,6 +312,33 @@ h3{line-height:1.28}
 
 /* V28: founder-first market building experience */
 :root{--accent:#7b8cff;--accent2:#58c7ff;--green:#67d7a2;--warn:#f0bd6d}
+
+/* Integrated global hero visual */
+.hero{padding:86px 0 72px;border-bottom:1px solid var(--line)}
+.hero-layout{display:grid;grid-template-columns:minmax(0,1.03fr) minmax(430px,.97fr);align-items:center;gap:34px;min-height:570px}
+.hero-copy-wrap{position:relative;z-index:2}
+.hero-copy-wrap h1{max-width:760px}
+.hero-actions{display:flex;align-items:center;gap:0}
+.hero-visual{min-height:540px;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative}
+.globe-wrap{width:min(100%,500px);aspect-ratio:1;display:grid;place-items:center;position:relative}
+.globe-wrap:after{content:"";position:absolute;inset:16%;border-radius:50%;background:radial-gradient(circle,rgba(79,140,255,.08),transparent 68%);pointer-events:none}
+.globe-svg{width:100%;height:100%;overflow:visible;position:relative;z-index:1}
+.globe-ring{fill:none;stroke:rgba(121,168,255,.42);stroke-width:1.2}
+.globe-ring.outer{stroke:rgba(121,168,255,.72);stroke-width:1.6}
+.globe-line{fill:none;stroke:rgba(121,168,255,.26);stroke-width:1}
+.globe-land{fill:rgba(79,140,255,.055);stroke:rgba(121,168,255,.5);stroke-width:1.15}
+.globe-orbit{fill:none;stroke:rgba(79,140,255,.34);stroke-width:1;stroke-dasharray:2 7}
+.globe-dots circle{fill:#79a8ff;stroke:#d9e7ff;stroke-width:1}
+.hero-visitors{text-align:center;margin-top:-42px;position:relative;z-index:3}
+.visitor-kicker{color:var(--blue2);font-size:11px;font-weight:800;letter-spacing:2.2px}
+.visitor-number{font-size:48px;line-height:1;font-weight:850;letter-spacing:-2px;margin:8px 0 5px;color:var(--text)}
+.visitor-label{color:var(--muted);font-size:13px}
+.visitor-history{display:flex;align-items:baseline;justify-content:center;gap:8px;margin-top:16px;padding-top:12px;border-top:1px solid var(--line);max-width:270px;margin-left:auto;margin-right:auto}
+.visitor-history-number{font-size:16px;font-weight:750;color:var(--blue2)}
+.visitor-history-label{font-size:11px;color:var(--muted)}
+@media(max-width:900px){.hero{padding:70px 0 55px}.hero-layout{grid-template-columns:1fr;min-height:auto;gap:30px}.hero-copy-wrap{max-width:760px}.hero-visual{min-height:auto}.globe-wrap{width:min(100%,430px)}.hero-visitors{margin-top:-28px}}
+@media(max-width:600px){.hero-layout{gap:16px}.hero-actions{flex-wrap:wrap;gap:10px}.button.secondary{margin-left:0}.hero-visual{margin-top:-8px}.globe-wrap{width:min(100%,350px)}.hero-visitors{margin-top:-20px}.visitor-number{font-size:40px}}
+
 body{font-size:17px;line-height:1.78}
 .container{max-width:1240px}
 section{padding:82px 0}
@@ -412,7 +439,6 @@ h3{font-size:22px}
 .depth-side h4{margin:0 0 10px;font-size:18px}.depth-list{display:grid;gap:10px;margin-top:14px}.depth-list div{padding:12px 14px;border-radius:11px;background:rgba(8,18,31,.55);color:#c9d7e6;font-size:14px;line-height:1.5}
 @media(max-width:800px){.country-depth-head,.country-depth-grid{grid-template-columns:1fr}.depth-lenses{grid-template-columns:1fr}}
 </style>
-<script defer src="https://cdn.vercel-insights.com/v1/script.js"></script>
 </head>
 <body>
 <nav>
@@ -431,11 +457,47 @@ h3{font-size:22px}
 </nav>
 <main id="home">
 <div class="container hero">
+<div class="hero-layout">
+<div class="hero-copy-wrap">
 <div class="eyebrow">Global business intelligence</div>
 <h1>Understand the business behind the law.</h1>
 <p>Themis Business helps you understand what actually changes when a business crosses a border — the market, the rules, the structure, and the decisions in between.</p>
+<div class="hero-actions">
 <a class="button" href="#atlas">Explore the platform</a>
 <a class="button secondary" href="#money">View business data</a>
+</div>
+</div>
+<div class="hero-visual" aria-label="Global business activity visualization">
+<div class="globe-wrap">
+<svg class="globe-svg" viewBox="0 0 520 520" role="img" aria-hidden="true">
+<defs>
+<radialGradient id="globeGlow" cx="50%" cy="45%" r="58%"><stop offset="0" stop-color="#4f8cff" stop-opacity=".13"/><stop offset=".72" stop-color="#4f8cff" stop-opacity=".02"/><stop offset="1" stop-color="#4f8cff" stop-opacity="0"/></radialGradient>
+<filter id="softGlow"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+</defs>
+<circle cx="260" cy="255" r="190" fill="url(#globeGlow)"/>
+<circle class="globe-ring outer" cx="260" cy="255" r="158"/>
+<ellipse class="globe-ring" cx="260" cy="255" rx="158" ry="62"/>
+<ellipse class="globe-ring" cx="260" cy="255" rx="158" ry="112"/>
+<ellipse class="globe-ring" cx="260" cy="255" rx="78" ry="158"/>
+<ellipse class="globe-ring" cx="260" cy="255" rx="126" ry="158"/>
+<path class="globe-line" d="M102 255h316M122 197c42 28 92 42 138 42s96-14 138-42M122 313c42-28 92-42 138-42s96 14 138 42"/>
+<path class="globe-land" d="M176 150c-16 8-29 20-36 34l12 15 21 5 12 18 21-5 8-19 25-7 11-20-12-14-24 2-15-11zM184 222l-17 12 5 27 16 21 8 35 18 22 15-7-4-27-13-21 5-24-10-17-8-19zM285 151l24 6 16 17-6 17-18 2-11 20-19-4-7-19 9-22zM300 224l22-10 25 7 8 22-14 10-2 21-19 9-11-16-16-5-8-18zM342 289l22 4 17 18-12 14-23-3-10-16zM260 348l18 9 5 20-15 19-17-12 2-22z"/>
+<g class="globe-dots" filter="url(#softGlow)"><circle cx="138" cy="226" r="4"/><circle cx="188" cy="140" r="4"/><circle cx="354" cy="166" r="4"/><circle cx="392" cy="258" r="4"/><circle cx="330" cy="365" r="4"/><circle cx="157" cy="318" r="4"/></g>
+<path class="globe-orbit orbit-a" d="M67 248C142 104 358 91 451 224C505 302 413 412 266 410C135 408 39 334 67 248Z"/>
+<path class="globe-orbit orbit-b" d="M101 348C80 235 168 131 298 120C421 110 480 196 429 291C381 381 191 413 101 348Z"/>
+</svg>
+</div>
+<div class="hero-visitors">
+<div class="visitor-kicker">TODAY ON THEMIS</div>
+<div class="visitor-number" id="todayVisitors" data-analytics-value="">—</div>
+<div class="visitor-label">people explored Themis today</div>
+<div class="visitor-history">
+  <span class="visitor-history-number" id="trackedVisitors">—</span>
+  <span class="visitor-history-label">visitors since analytics began</span>
+</div>
+</div>
+</div>
+</div>
 </div>
 <section class="v23-hero" id="atlas"><div class="container">
 <div class="v23-kicker">THEMIS BUSINESS</div>
@@ -1362,6 +1424,23 @@ const researchItems=[
 .country-result,.builder-choice,.place-choice{cursor:pointer;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
 .country-result{appearance:none;text-align:left;color:inherit;font:inherit;width:100%}
 </style>
-  <!-- Vercel connection test -->
+
+<script>
+// Fetch real counts from the server endpoint. No credentials are included in the browser.
+(async function loadThemisVisitorCounts(){
+  const todayNode = document.getElementById('todayVisitors');
+  const totalNode = document.getElementById('trackedVisitors');
+  if (!todayNode) return;
+  try {
+    const response = await fetch('/api/visitors', { headers: { 'Accept': 'application/json' } });
+    if (!response.ok) throw new Error('Analytics unavailable');
+    const data = await response.json();
+    if (Number.isInteger(data.todayVisitors) && data.todayVisitors >= 0) todayNode.textContent = data.todayVisitors.toLocaleString();
+    if (totalNode && Number.isInteger(data.trackedVisitors) && data.trackedVisitors >= 0) totalNode.textContent = data.trackedVisitors.toLocaleString();
+  } catch (_) {
+    // Keep the neutral dash when the API cannot return verified data.
+  }
+})();
+</script>
 </body>
 </html>
